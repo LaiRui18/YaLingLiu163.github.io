@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阳光明媚</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+        #galaxy{
+            width: 100%;
+            height: 100%;
+            background: black;
+            position: relative;
+        }
+        .content{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .sun{
+            width: 60px;
+            height: 60px;
+            background: gold radial-gradient(circle, white,gold);
+            box-shadow: 0 0 40px 10px gold;
+
+        }
+
+        .earth{
+            width: 300px;
+            height: 300px;
+            border:2px solid rgba(255, 255, 255, 0);
+            animation: move 100s linear infinite;
+
+        }
+        .earth::before,.moon::before{
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: gold radial-gradient(circle, green,blue);
+            box-shadow: 0 0 40px 10px blue;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .moon{
+            width: 80px;
+            height: 80px;
+            border:2px solid rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            animation: move 10s linear infinite;
+        }
+        .moon::before{
+            width: 5px;
+            height: 5px;
+            background: gold radial-gradient(circle, black,gray);
+            box-shadow: 0 0 40px 10px gray;
+        }
+
+        /*动画
+        */
+        @keyframes move {
+            0%{
+               transform: translate(-50%,-50%) rotate(0deg);
+            }
+            100%{
+                transform: translate(-50%,-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<audio src="http://www.winsphoto.cn/music/music06.mp3" autoplay></audio>
+<div id="galaxy"></div>
+    <div class="sun content"></div>
+    <div class="earth content">
+        <div class="moon"></div>
+    </div>
+
+</body>
+</html>
